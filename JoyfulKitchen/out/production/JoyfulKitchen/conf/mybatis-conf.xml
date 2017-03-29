@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 我们可以配置多个数据库，这样方便我们在不同环境下的开发 -->
+    <!-- 配置好了，后面就不需要改来改去了。切换数据库的时候，只需要将 default 指向我们相应的配置就可以了 -->
+    <environments default="root2">
+
+        <!-- 配置我们在生产环境中使用的数据库 -->
+        <environment id="root">
+            <!-- 配置使用 jdbc 内建的事务处理 -->
+            <transactionManager type="JDBC"/>
+            <!-- 设置数据源 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+
+        <environment id="root2">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+
+    </environments>
+
+    <!-- 指定各个 mapper 文件 -->
+    <mappers>
+    </mappers>
+
+</configuration>
